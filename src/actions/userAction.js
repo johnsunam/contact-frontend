@@ -21,7 +21,6 @@ export const getCurrentUser = userId => dispatch => {
         type: 'LOGIN_USER',
         payload: res.data.data,
       });
-      console.log('resss=ssss', res);
       return res;
     });
 }

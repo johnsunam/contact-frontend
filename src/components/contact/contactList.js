@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { List, Avatar, Button, Skeleton } from 'antd';
 import { connect } from 'react-redux';
+import { getContacts } from '../../actions/contactAction';
 
 
 class ContactList extends Component {
@@ -12,7 +13,7 @@ class ContactList extends Component {
   
 
   componentDidMount() {
-    console.log('this.props', this.props)
+    console.log('this.props', this.props.getContacts())
   }
 
   render() {
@@ -46,4 +47,4 @@ const mapStateToProps = (store) => ({
   list: store.contactListReducer.list,
   loading: store.contactListReducer.isLoading,
 });
-export default connect(mapStateToProps, {})(ContactList);
+export default connect(mapStateToProps, { getContacts })(ContactList);
