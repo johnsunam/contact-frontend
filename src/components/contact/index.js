@@ -4,7 +4,7 @@ import ContactList from './contactList';
 const Contact = props => {
   return (
     <React.Fragment>
-      <ContactList />
+      <ContactList/>
     </React.Fragment>
   )
 }

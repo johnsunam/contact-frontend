@@ -5,15 +5,14 @@ const initialState = {
 }
 
 export const contactListReducer = (state = initialState, action) => {
-  let newState = { ...initialState };
-  switch(action) {
+  let newState = { ...state };
+  switch(action.type) {
     case 'FETCT_CONTACT_LIST_PROGRESS':
       newState.isLoading = true;
       newState.error = null;
     return newState;
     case 'FETCH_CONTACT_LIST_SUCCESS':
-      let conList = [ ...newState.list ];
-      newState.list = conList.concat(action.payload);
+      newState.list = action.payload;
       newState.error = null;
       newState.isLoading = false;
       return newState;

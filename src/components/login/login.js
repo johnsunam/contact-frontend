@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Layout, Card, Col, Row } from 'antd';
 import FacebookLogin from 'react-facebook-login';
 import cookie from 'react-cookies';
+import { Redirect } from 'react-router-dom';
 
 import Header from '../common/header';
 import { login, getCurrentUser } from '../../actions/userAction';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
   constructor(props) {
@@ -27,11 +27,12 @@ class Login extends Component {
     if(userId){
       this.props.getCurrentUser(userId)
         .then(res => {
-          this.setState({loggedIn: true}) 
-        })
-        .catch(err => {
-          this.setState({ loggedIn: false });
-        })
+          if(res.success) {
+            this.setState({ loggedIn: true }) 
+          } else {
+            this.setState({ loggedIn: false });
+          }
+        });
     } else {
       this.setState({loggedIn: false})
     }

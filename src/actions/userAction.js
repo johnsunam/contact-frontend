@@ -21,6 +21,15 @@ export const getCurrentUser = userId => dispatch => {
         type: 'LOGIN_USER',
         payload: res.data.data,
       });
-      return res;
+      return res.data;
+    })
+    .catch(err => { 
+      const { status, data } = err.response;
+      data.status = status;
+      dispatch({
+        type: 'SET_ERROR',
+        payload: data,
+      });
+      return data;
     });
 }
