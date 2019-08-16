@@ -40,7 +40,7 @@ class Login extends Component {
 
   render() {
     return !this.state.loggedIn ? <Layout className="layout"><Header />
-            <div style={{ background: '#ECECEC', padding: '30px' }}>
+            <div style={{ background: '#ECECEC', padding: '30px', minHeight: 725 }}>
               <Row gutter={16}>
                 <Col span={8}>
                 </Col>
@@ -48,7 +48,7 @@ class Login extends Component {
                   <Card title="Login with:" bordered={false}>
                     <FacebookLogin
                       appId="2378747232446844"
-                      autoLoad={true}
+                      autoLoad={false}
                       fields="name,email,picture"
                       onClick={renderProps => <a onClick={renderProps.onClick}></a>}
                       callback={this.responseFacebook} />

@@ -7,7 +7,6 @@ export const getContacts = () => (dispatch, getState) => {
   const userId = getState().currentUserReducer.id;
   return contactsApi(userId)
     .then(res => {
-      console.log('resss', res);
       dispatch({
         type: 'FETCH_CONTACT_LIST_SUCCESS',
         payload: res.data.data,
@@ -21,7 +20,6 @@ export const getContacts = () => (dispatch, getState) => {
 export const createContact = (data) => (dispatch, getState) => {
   return createContactApi(data)
     .then(res => {
-      console.log('ress',res);
       let contactList = [...getState().contactListReducer.list]
       let contact = res.data.data;
       contactList.push(contact);

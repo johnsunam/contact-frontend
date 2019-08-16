@@ -36,7 +36,7 @@ class CommonLayout extends Component {
   }
   render() {
     return this.props.error.status === 302 ? <Redirect  to={{pathname : this.props.error.message}} /> : <Layout className="layout">
-            <Header />
+            <Header {...this.props}/>
             <div style={{ background: 'white', padding: '30px', minHeight: 725}}>
               <Row gutter={16}>
                 <Col span={4}>

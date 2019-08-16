@@ -14,6 +14,9 @@ export const errorReducer = (state = initialState, action) => {
       newState.status = null;
       newState.message = null;
       return newState;
+    case 'LOGOUT':
+      newState = initialState;
+      return newState;
     default:
       return newState;
   }

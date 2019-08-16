@@ -13,7 +13,10 @@ const initialState = {
       newState.email = action.payload.email;
       newState.id = action.payload.id;
       newState.avatar = action.payload.avatar;
-    return newState;
+      return newState;
+    case 'LOGOUT':
+      newState = initialState;
+      return newState;
     default:
       return newState;
   }

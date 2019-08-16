@@ -20,6 +20,9 @@ export const contactListReducer = (state = initialState, action) => {
       newState.isLoading = false;
       newState.error = action.payload;
       return newState;
+    case 'LOGOUT':
+      newState = initialState;
+      return newState;
     default:
       return newState;
   }

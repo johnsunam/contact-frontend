@@ -33,3 +33,5 @@ export const getCurrentUser = userId => dispatch => {
       return data;
     });
 }
+
+export const logout = () => dispatch => dispatch({type: 'LOGOUT'});
